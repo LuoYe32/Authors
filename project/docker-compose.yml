@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: my_project_app
+    container_name: my_project_app
+    ports:
+      - "8000:80"
+    volumes:
+      - ./my_project_name:/var/www/html
+    depends_on:
+      - db
+    extra_hosts:
+      - "localhost:127.0.0.1"
+
+  db:
+    image: mysql:5.7
+    container_name: my_project_db
+    environment:
+      MYSQL_ROOT_PASSWORD: 1341
+      MYSQL_DATABASE: Author
+      MYSQL_USER: calabi
+      MYSQL_PASSWORD: 1341
+    ports:
+      - "3300:3300"
+    volumes:
+      - ./mysql_data:/var/lib/mysql
+
+# ###> doctrine/doctrine-bundle ###
+#   database:
+#     image: postgres:${POSTGRES_VERSION:-15}-alpine
+#     environment:
+#       POSTGRES_DB: ${POSTGRES_DB:-app}
+#       # You should definitely change the password in production
+#       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-!ChangeMe!}
+#       POSTGRES_USER: ${POSTGRES_USER:-app}
+#     volumes:
+#       - database_data:/var/lib/postgresql/data:rw
+#       # You may use a bind-mounted host directory instead, so that it is harder to accidentally remove the volume and lose all your data!
+#       # - ./docker/db/data:/var/lib/postgresql/data:rw
+# ###< doctrine/doctrine-bundle ###
+
+volumes:
+###> doctrine/doctrine-bundle ###
+  database_data:
+###< doctrine/doctrine-bundle ###
