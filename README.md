@@ -1,7 +1,7 @@
 # Symfony Author and Book Management
 
 This Symfony project provides a CRUD (Create, Read, Update, Delete) interface for managing authors and books.
---
+-
 ## Usage
 
 ### Accessing Author CRUD
