@@ -6,7 +6,7 @@ This Symfony project provides a CRUD (Create, Read, Update, Delete) interface fo
 
 ### Accessing Author CRUD
 * Author List: http://127.0.0.1:8000/author/
-![Author List](<images/author list.png>)
+![Author List](<project/images/author list.png>)
 * Create New Author: http://127.0.0.1:8000/author/new
 ![New Author](<images/author new.png>)
 * Edit an Author: http://127.0.0.1:8000/author/{id}/edit
